@@ -1,0 +1,782 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/*header*/
+header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* background-color:rgba(0, 0, 0, .4); */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 15vh;
+    z-index: 999;
+    background-color: white;
+}
+
+header .logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+header .logo h3{
+    font-size: 1.3rem;
+    letter-spacing: .12rem;
+}
+header .logo img{
+    width: 6rem;
+    height: 5rem;
+}
+header .search{
+    display: flex;
+    gap: .5rem;
+}
+header .search input{
+    display: flex;
+    width: 11rem;
+    border-radius: .25rem;
+}
+
+header .search span button{
+    width: 5rem;
+    padding: .3rem;
+}
+
+header .profile{
+    font-size: 1.4rem;
+}
+header .profile a{
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+header .cart {
+    font-size: 1.8rem;
+}
+
+header .cart a{
+    text-decoration: none;
+}
+
+
+/*danmart*/
+
+
+.danmart {
+    position: relative; /* Ensure the overlay is positioned correctly */
+    margin-top: 5.9rem;
+    background-image: url(images/back2.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white; /* Adjust text color for better contrast */
+    text-align: center;
+    z-index: 1; /* Ensure content appears above the overlay */
+}
+
+.danmart::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Black overlay with 50% opacity */
+    z-index: -1; /* Push overlay behind the content */
+}
+
+.danmart .write{
+    line-height: 2.5rem;
+    width: 30rem;
+}
+
+.danmart .write span{
+    color: #9dcd5a;
+    text-shadow: 2px 4px 5px black;
+}
+
+/*categories*/
+.categories{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0;
+    text-shadow: 2px 2px 3px #9dcd5a;
+    font-size: 1.3rem;
+}
+
+ .search2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+    margin-bottom: 2rem;
+}
+ .search2 input{
+    display: flex;
+    width: 15rem;
+    border-radius: .25rem;
+    padding: .3rem;
+}
+
+ .search2 span button{
+    width: 5rem;
+    padding: .3rem;
+    border: none;
+}
+
+/*products*/
+.products{
+    max-width: 85rem;
+    max-height: 70rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.products .product-display{
+    width: 16rem;
+    line-height: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #EEEEEE;
+    padding-top: .5rem;
+    border-radius: .5rem;
+    font-size: 1.25rem;
+    box-shadow: 0px 0px 1px black;
+
+}
+
+.products .product-display img{
+    width: 13rem;
+    height: 10rem;
+}
+
+
+.products .product-display .add-to-cart{
+    margin: 1.4rem 0;
+}
+.products .product-display button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10rem;
+    padding: .6rem;
+    border: none;
+    font-size: 1.22rem;
+}
+
+.products .product-display button:hover{
+    box-shadow: 2px 2px 3px black;
+    border-radius: .6rem;
+    cursor: pointer;
+    font-weight: bolder;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    padding: 1rem;
+    width: 100%;
+}
+
+.pagination button, .pagination .page-btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.pagination .page-btn {
+    background-color: white;
+    color: black;
+    border: 1px solid #ccc;
+    min-width: 2rem;
+    text-align: center;
+    margin: 0 4px; /* Add small spacing between buttons */
+    padding: 0.5rem 0.75rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.pagination .page-btn.active {
+    background-color: #333;
+    color: white;
+    font-weight: bold;
+}
+
+.pagination button:hover, .pagination .page-btn:hover {
+    background-color: #555;
+}
+
+.pagination button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+
+/*bmi*/
+.bmi {
+    max-width: 40rem;
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px #9dcd5a;
+    text-align: center;
+    margin: 2rem auto;
+}
+
+.bmi h3 {
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.bmi-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.bmi-container label {
+    font-size: 1rem;
+    color: #555;
+    text-align: left;
+}
+
+.bmi-container input {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.bmi-container button {
+    padding: 0.6rem;
+    font-size: 1rem;
+    background: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.bmi-container button:hover {
+    background: #0056b3;
+}
+
+#result {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    font-weight: bold;
+    color: #333;
+}
+
+/*footer*/
+footer{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #9dcd5a;
+    line-height: 3rem;
+}
+
+footer h4{
+    font-size: 1.2rem;
+
+}
+
+footer a{
+    text-decoration: none;
+    color: black;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+footer .contact img{
+    width: 3rem;
+    height: 1.5rem;
+}
+
+/*responsiveness*/
+@media screen and (min-width:350px){
+    
+/*header*/
+header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* background-color:rgba(0, 0, 0, .4); */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 11vh;
+    z-index: 999;
+    background-color: white;
+}
+
+header .logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+header .logo h3{
+    font-size: 1rem;
+    letter-spacing: .12rem;
+}
+header .logo img{
+    width: 6rem;
+    height: 5rem;
+}
+header .search{
+    display: none;
+    gap: .5rem;
+}
+header .search input{
+    display: flex;
+    width: 11rem;
+    border-radius: .25rem;
+}
+
+header .search span button{
+    width: 5rem;
+    padding: .3rem;
+}
+
+header .profile{
+    font-size: 1rem;
+}
+header .profile a{
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+header .cart {
+    font-size: 1.4rem;
+}
+
+header .cart a{
+    text-decoration: none;
+}
+
+/*categories*/
+.categories{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 0;
+    text-shadow: 2px 2px 3px #9dcd5a;
+    font-size: 1rem;
+}
+
+ .search2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+    margin-bottom: 1.4rem;
+}
+ .search2 input{
+    display: flex;
+    width: 15rem;
+    border-radius: .25rem;
+    padding: .3rem;
+}
+
+ .search2 span button{
+    width: 5rem;
+    padding: .3rem;
+    border: none;
+}
+
+/*products*/
+.products{     
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns per row */
+    gap: 1rem; /* optional spacing between items */
+padding: .5rem;}
+
+
+    
+    .products .product-display {
+        width: 100%; /* Allow to fill column */
+        font-size: 0.9rem;
+        padding: 0.5rem;
+        width: 100%;
+        font-size: 0.85rem;
+        padding: 0.3rem;
+        height: 15rem; /* reduce overall height */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+
+    }
+
+    .products .product-display img {
+        width: 100%;
+        height: auto;
+        max-height: 6rem;
+        object-fit: cover;
+    }
+
+    .products .product-display button {
+        width: 100%;
+        padding: 0.4rem;
+        font-size: 0.95rem;
+    }
+
+    /*footer*/
+footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: none;
+    align-items: normal;
+    background-color: #9dcd5a;
+    line-height: 3rem;
+}
+
+footer h4{
+    font-size: 1.2rem;
+
+}
+
+footer a{
+    text-decoration: none;
+    color: black;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+footer .contact img{
+    width: 3rem;
+    height: 1.5rem;
+}
+
+}
+
+@media screen and (min-width:768px){
+    
+/*header*/
+header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* background-color:rgba(0, 0, 0, .4); */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 8vh;
+    z-index: 999;
+    background-color: white;
+}
+
+header .logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+header .logo h3{
+    font-size: 1.3rem;
+    letter-spacing: .12rem;
+}
+header .logo img{
+    width: 6rem;
+    height: 5rem;
+}
+header .search{
+    display: none;
+    gap: .5rem;
+}
+header .search input{
+    display: flex;
+    width: 11rem;
+    border-radius: .25rem;
+}
+
+header .search span button{
+    width: 5rem;
+    padding: .3rem;
+}
+
+header .profile{
+    font-size: 1.4rem;
+}
+header .profile a{
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+header .cart {
+    font-size: 1.8rem;
+}
+
+header .cart a{
+    text-decoration: none;
+}
+
+/*danmart*/
+.danmart {
+    position: relative; /* Ensure the overlay is positioned correctly */
+    margin-top: 5rem;
+    background-image: url(images/back2.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white; /* Adjust text color for better contrast */
+    text-align: center;
+    z-index: 1; /* Ensure content appears above the overlay */
+}
+
+.danmart .write{
+    line-height: 2rem;
+    width: 30rem;
+}
+
+
+
+    .products {
+        gap: 1rem;
+        padding: 1rem;
+        grid-template-columns: repeat(3, 1fr); /* 3 items per row */
+    }
+
+    .products .product-display {
+        font-size: 1.2rem; /* Slightly bigger font size */
+        height: 15rem; /* Adjust the height of product display */
+        padding: 0.5rem;
+    }
+
+    .products .product-display img {
+        width: 15rem;
+        height: 9rem; /* Larger images */
+    }
+
+    .products .product-display button {
+        font-size: 1.1rem; /* Slightly bigger button font */
+        padding: 0.6rem;
+    }
+    /*footer*/
+footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #9dcd5a;
+    line-height: 3rem;
+}
+
+footer h4{
+    font-size: 1.2rem;
+
+}
+
+footer a{
+    text-decoration: none;
+    color: black;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+footer .contact img{
+    width: 3rem;
+    height: 1.5rem;
+}
+}
+
+@media screen and (min-width: 1024px) {
+
+    
+/*header*/
+header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* background-color:rgba(0, 0, 0, .4); */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 15vh;
+    z-index: 999;
+    background-color: white;
+}
+
+header .logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+header .logo h3{
+    font-size: 1.3rem;
+    letter-spacing: .12rem;
+}
+header .logo img{
+    width: 6rem;
+    height: 5rem;
+}
+header .search{
+    display: flex;
+    gap: .5rem;
+}
+header .search input{
+    display: flex;
+    width: 11rem;
+    border-radius: .25rem;
+}
+
+header .search span button{
+    width: 5rem;
+    padding: .3rem;
+}
+
+header .profile{
+    font-size: 1.4rem;
+}
+header .profile a{
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+header .cart {
+    font-size: 1.8rem;
+}
+
+header .cart a{
+    text-decoration: none;
+}
+
+/*danmart*/
+
+
+.danmart {
+    position: relative; /* Ensure the overlay is positioned correctly */
+    margin-top: 5.9rem;
+    background-image: url(images/back2.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white; /* Adjust text color for better contrast */
+    text-align: center;
+    z-index: 1; /* Ensure content appears above the overlay */
+}
+
+.danmart::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Black overlay with 50% opacity */
+    z-index: -1; /* Push overlay behind the content */
+}
+
+.danmart .write{
+    line-height: 2.5rem;
+    width: 30rem;
+}
+
+.danmart .write span{
+    color: #9dcd5a;
+    text-shadow: 2px 4px 5px black;
+}
+
+
+/*products*/
+
+    .products {
+        gap: 1.5rem; /* Add spacing between products */
+        padding: 1rem; /* Padding around the entire products section */
+        grid-template-columns: repeat(5, 1fr); /* 6 items per row */
+    }
+
+    .products .product-display {
+        font-size: 1.2rem; /* Slightly bigger font size */
+        height: 18rem; /* Adjust the height of product display */
+        padding: 1.2rem; /* Padding around each product card */
+        background-color: #EEEEEE;
+        border-radius: 0.5rem;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2); /* Optional: Adding some shadow for better contrast */
+    }
+
+    .products .product-display img {
+        width: 12rem; /* Adjusted image size for larger screens */
+        height: 8rem; /* Adjusted height for larger screens */
+    }
+
+    .products .product-display button {
+        font-size: 1.1rem; /* Slightly bigger button font */
+        padding: 0.6rem;
+    }
+    
+
+/*footer*/
+footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #9dcd5a;
+    line-height: 3rem;
+}
+
+footer h4{
+    font-size: 1.2rem;
+
+}
+
+footer a{
+    text-decoration: none;
+    color: black;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+footer .contact img{
+    width: 3rem;
+    height: 1.5rem;
+}
+
+}
+
+
+
+
